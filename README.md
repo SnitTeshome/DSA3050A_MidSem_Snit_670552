@@ -1,7 +1,9 @@
-# ***DSA 3050A - Business Intelligence and Visualization***
+# ***DSA3050A_MidSem_Snit_670552***
+
 # ***Mid-Semester Practical Examination***
 
----
+## **Business Intelligence Project using Microsoft Power BI**
+
 
 ## ***Student Information***
 
@@ -9,13 +11,15 @@
 
 ***Student ID:*** *670552*
 
-***Course:*** *DSA 3050A - Business Intelligence and Visualization*
+***Course:*** *DSA 3050A - Business Intelligence*
 
 ***Submission Date:*** *June 2025*
 
 ***Repository Name:*** *DSA3050A_MidSem_Snit_670552*
 
 ---
+
+
 
 ## ***Dataset Description***
 
@@ -25,24 +29,21 @@
 
 ***Source URL:*** *https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8*
 
-***Data Filtered To:*** *2023 to 2024 records only*
+***Number of Rows:*** *358,750 crime incident records (after filtering 2023 to 2024 records only)*
 
-***Number of Rows:*** *358,750 crime incident records (after filtering to 2023-2024)*
-
-***Number of Columns:*** *22 columns (after removing unnecessary fields during cleaning)  section _0ne*
-
-***Original Columns Before Cleaning:*** *28 columns*
+***Number ofColumns :*** *28 columns*
 
 ***Data Nature:*** *Real-world incident reports transcribed directly from original LAPD paper crime reports.While it is  large  dataset  to dowload  we  used  direct powerbi importing using  web:*
 ![Connecting Source](Screenshots/Additiononal_Readme/Connecting_source.png)
 
 ---
 
+
 ## ***Business Problem Being Analyzed***
 
 *You have been hired as a Business Intelligence Analyst for the Los Angeles Police Department (LAPD). Department management has provided a large raw dataset of crime incident records containing errors, inconsistencies, missing values, and poorly structured fields. The dataset covers all reported crime incidents across 21 LAPD operational divisions for the years 2023 and 2024.*
 
-*The objective of this project is to clean and transform the dataset using Power Query, then build a professional multi-page Power BI dashboard that enables LAPD leadership to make data-driven decisions on the following business questions:*
+*The objective of this project is to clean and transform the dataset using Power Query, then build a professional Power BI dashboard that enables LAPD leadership to make data-driven decisions on the following business questions:*
 
 - *Which geographic districts record the highest crime volumes and require priority resource deployment?*
 - *What is the overall case resolution rate, and where are the investigative bottlenecks?*
@@ -53,7 +54,6 @@
 ---
 
 ## ***Repository Structure***
-
 ```
 DSA3050A_MidSem_Snit_670552/
 │
@@ -132,8 +132,8 @@ DSA3050A_MidSem_Snit_670552/
 │       ├── 02_Drilldown_1.png
 │       └── 02_Drilldown_2.png
 │
-├── Documentation/
-│   └──INSIGHTS
+├── Insight.pdf
+│ 
 │
 ├── PowerQuery_Evidence/
 │   └── Applied_Steps_Final
@@ -143,15 +143,11 @@ DSA3050A_MidSem_Snit_670552/
 └── README.md
 ```
 
----
-
 ## ***Question 1: Power Query Transformations Performed***
 
 ### ***Section A: Basic Data Cleaning***
 
 ***A.1 — Renamed Unclear Columns*** 
-
-*The dataset headers were standardized using Power Query rename operations. Raw system-generated field names were converted to readable business labels to improve clarity across all subsequent transformation steps and dashboard visuals. The following renamings were applied:*
 
 - *DR_NO to Case ID*,*DATE OCC to Crime Date*,*TIME OCC to Crime Time*,*AREA NAME to Area*,*Crm Cd to Crime Code*,*Crm Cd Desc to Crime Description*, *Vict Age to Victim Age*,*Vict Sex to Victim Sex*,*Premis Cd to Premise Code*, *Premis Desc to Premise Description*,*Weapon Desc to Weapon Description*,*Status Desc to Status Description* 
 *Screenshots: 02_cleaning/01_column_renaming.png, 02_cleaning/Sample_renaming.png*
@@ -159,41 +155,33 @@ DSA3050A_MidSem_Snit_670552/
 
 ***A.2 — Changed Data Types Correctly*** 
 
-*Appropriate data types were explicitly assigned to each column in Power Query to ensure accurate computation, filtering, and relational joins. The following type conversions were applied:*
-
 - *Crime Date and Report Date converted to Date type*
 - *Crime Time, Area Code, Reporting District, Crime Code, Weapon Code, and Premise Code converted to Whole Number*
 - *Latitude and Longitude converted to Decimal Number*
 - *All descriptive and categorical fields including Area Name, Crime Description, Victim Sex, Victim Descent, Premise Description, Weapon Description, and Status Description retained as Text type*
 
-*Screenshots: 02_cleaning/02_applied_data_types.png, 02_cleaning/Sample_dataType.png*
-
 ![Applied Datatypes](Screenshots/02_cleaning/02_applied_datatypes.png)
 
 ***A.3 — Removed Duplicate Records*** 
 
-*Duplicate rows were eliminated using the Remove Duplicates transformation applied across all columns. This retained only unique crime incident records and ensured the Case ID field functioned as a reliable unique identifier for each reported incident.*
+*This retained only unique crime incident records and ensured the Case ID field functioned as a reliable unique identifier for each reported incident.*
 
-*Screenshot: 02_cleaning/03_remove_duplicates.png*
 
 ![Remove Duplicates](Screenshots/02_cleaning/03_remove_duplicates.png)
 
-***A.4 — Removed Blank Rows*** *(2 Marks)*
+***A.4 — Removed Blank Rows*** 
 
-*Empty rows and records with missing critical identifiers were removed using the Remove Blank Rows transformation. This step eliminated incomplete records that would have introduced gaps or distortions into aggregated metrics and dashboard calculations.*
-
+*Empty rows and records with missing critical identifiers were removed using the Remove Blank Rows transformation.*
 
 ***A.5 — Trimmed and Cleaned Text Columns*** 
 
-*Text fields were cleaned using the Trim and Clean transformation functions in Power Query. This removed leading and trailing whitespace characters, extra internal spaces, and non-printable formatting characters from the following fields: Area Name, Premise Description, Weapon Description, Status Description, Location, and Cross Street. This ensured consistent string matching in filters and joins.*
+*Area Name, Premise Description, Weapon Description, Status Description, Location, and Cross Street.*
 
 ![Trim Clean Text Columns](Screenshots/02_cleaning/05_trim_clean_text_columns.png)
 
 ---
 
 ***A.6 — Replaced Inconsistent Values*** 
-
-*Standardization was applied to categorical columns using the Replace Values transformation. Specific corrections included:*
 
 - *Victim Sex spacing inconsistencies corrected: " M" replaced with "M", "F " replaced with "F", "X " replaced with "X"*
 - *Missing Weapon Description values replaced with the label "No Weapon Used"*
@@ -202,7 +190,7 @@ DSA3050A_MidSem_Snit_670552/
 
 ***A.7 — Removed Unnecessary Columns*** 
 
-*Redundant and analytically irrelevant fields were removed to reduce dataset complexity and focus the model on core variables. The dataset was reduced from 30 columns to 22 columns by dropping the following fields: MO Codes, Secondary Crime Code 1, Secondary Crime Code 2, Secondary Crime Code 3, and Cross Street.*
+*The dataset was reduced from 30 columns to 22 columns by dropping the following fields: MO Codes, Secondary Crime Code 1, Secondary Crime Code 2, Secondary Crime Code 3, and Cross Street.*
 ![Remove Unnecessary Columns](Screenshots/02_cleaning/07_remove_unnecessary_columns.png)
 
 
@@ -223,15 +211,13 @@ DSA3050A_MidSem_Snit_670552/
 
 ***B.3 — Created Custom Columns*** 
 
-*Three custom columns were created using conditional M formula logic:*
-
-*Custom Column 1 — Time of Day: Derived from the Crime Hour column. Values of 0 through 5 were labeled "Night", 6 through 11 were labeled "Morning", 12 through 17 were labeled "Afternoon", and 18 through 23 were labeled "Evening". This column enabled time-of-day filtering and donut chart segmentation across the dashboard.*
+*Custom Column 1 — Time of Day: Derived from the Crime Hour column. Values of 0 through 5 were labeled "Night", 6 through 11 were labeled "Morning", 12 through 17 were labeled "Afternoon", and 18 through 23 were labeled "Evening".*
 
 ![Create Custom Columns 1](Screenshots/03_Intermediate_Transformations/03_create_custom_columns_1.png)
 
-*Custom Column 2 — Days to Report: Calculated by subtracting the Crime Date from the Report Date, producing a numeric count of how many calendar days elapsed before each incident was officially logged in the system. This column directly powered the Avg Report Delay KPI card showing 7.22 days.*
+*Custom Column 2 — Days to Report: Calculated by subtracting the Crime Date from the Report Date, producing a numeric count of how many calendar days elapsed before each incident was officially logged in the system.*
 
-*Custom Column 3 — Victim Category: Derived from the Victim Age column. Ages below 0 or null values were labeled "Invalid", ages 0 through 17 were labeled "Minor", ages 18 through 64 were labeled "Adult", and ages 65 and above were labeled "Senior". This column enabled demographic segmentation across resolution status charts.*
+*Custom Column 3 — Victim Category: Derived from the Victim Age column. Ages below 0 or null values were labeled "Invalid", ages 0 through 17 were labeled "Minor", ages 18 through 64 were labeled "Adult", and ages 65 and above were labeled "Senior".*
 
 ![Create Custom Columns 3](Screenshots/03_Intermediate_Transformations/03_create_custom_columns_3.png)
 
@@ -240,11 +226,11 @@ DSA3050A_MidSem_Snit_670552/
 
 *Two conditional columns were created using the Add Conditional Column interface:*
 
-*Conditional Column 1 — Crime Severity: Based on the Crime Code field, incidents were categorized into three operational tiers. Crime codes associated with violent felonies were labeled "High", codes associated with property offenses were labeled "Medium", and all remaining codes were labeled "Low". This column powered the Crime Severity slicer on the Overview Dashboard.*
+*Conditional Column 1 — Crime Severity: Based on the Crime Code field, incidents were categorized into three operational tiers. Crime codes associated with violent felonies were labeled "High", codes associated with property offenses were labeled "Medium", and all remaining codes were labeled "Low".*
 
 ![Create Conditional Columns](Screenshots/03_Intermediate_Transformations/04_create_conditional_columns.png)
 
-*Conditional Column 2 — Is Night Crime: Based on the Crime Hour column. Hours between 20 and 23 or between 0 and 5 were labeled "Yes" (night crime). All other hours were labeled "No". This binary column enabled the night versus day pie chart on the Patterns and Resolution page.*
+*Conditional Column 2 — Is Night Crime: Based on the Crime Hour column. Hours between 20 and 23 or between 0 and 5 were labeled "Yes" (night crime). All other hours were labeled "No".*
 
 
 ***B.5 — Extracted Date Components***
@@ -255,8 +241,6 @@ DSA3050A_MidSem_Snit_670552/
 - *Crime Month: Extracted the numeric month value (1 through 12)*
 - *Crime Day: Extracted the numeric day of the month (1 through 31)*
 - *Crime Quarter: Constructed the quarter label as "Q1", "Q2", "Q3", or "Q4" using the formula "Q" concatenated with the rounded-up result of month divided by 3*
-
-*These four columns enabled the drill-down hierarchy on the trend line chart and the quarterly cross-tabulation in the matrix visual.*
 ![Extract Date Month Year](Screenshots/03_Intermediate_Transformations/05_extract_date_MYear.png)
 
 ***B.6 — Filtered Rows Using Two Conditions*** 
@@ -267,17 +251,17 @@ DSA3050A_MidSem_Snit_670552/
 - *Filter 2: Retained only rows where Victim Age is less than or equal to 120 (removed biologically implausible age values)*
 ![Filter Rows Conditions 1](Screenshots/03_Intermediate_Transformations/06_filter_rows_conditions_1.png)
 
-*A third filter was applied to confirm valid Status Description values, retaining only rows with recognized investigative status labels to ensure the donut chart distributions were accurate.*
+*A third filter was applied to confirm valid Status Description values, retaining only rows with recognized investigative status labels.*
 
 ***B.7 — Sorted Data Meaningfully*** 
 
-*The dataset was sorted by Crime Date in ascending order (oldest to most recent) as the primary sort key. This ensured the time-series line chart rendered correctly in chronological order and that the index column assigned sequential numbers in date order.*
+*The dataset was sorted by Crime Date in ascending order (oldest to most recent) as the primary sort key.*
 ![Sort Data](Screenshots/03_Intermediate_Transformations/08_sort_data.png)
 
 
 ***B.8 — Added Index Column*** 
 
-*An index column named Crime Record Number was added to the dataset using the Add Index Column function set to start at 1. The column was positioned as the first column in the table and sequentially numbered all records from 1 through 45,000, providing a clean surrogate row identifier for the cleaned dataset.*
+*An index column named Crime Record Number was added to the dataset using the Add Index Column function set to start at 1. The column was positioned as the first column in the table.*
 ![Applied Steps](Screenshots/03_Intermediate_Transformations/Applied_steps.png)
 
 ### ***Section C: Advanced Power Query Tasks***
@@ -285,7 +269,7 @@ DSA3050A_MidSem_Snit_670552/
 
 ***C.1 — Merge Queries Using a Common Key***
 
-*A new reference table named Area Lookup was created by extracting all distinct Area Name values from the main crime dataset. This produced a clean dimensional lookup table containing the 21 unique LAPD operational division names without repetition. The Area Lookup table was then merged back into the main crime query using a Left Outer Join on the Area Name column as the common key. This merge operation appended the structured area dimension to the main fact table, enabling cleaner relational joins for geographic analysis.*
+*A new reference table named Area Lookup was created by extracting all distinct Area Name values from the main crime dataset. This produced a clean dimensional lookup table containing the 9 unique LAPD operational division names without repetition. The Area Lookup table was then merged back into the main crime query using a Left Outer Join on the Area Name column as the common key. This merge operation appended the structured area dimension to the main fact table.*
 
 ![Merge Queries 1](Screenshots/04_Advanced_Power_Query/01_merge_queries_1.png)
 
@@ -295,11 +279,11 @@ DSA3050A_MidSem_Snit_670552/
 
 *Two advanced nested conditional columns were created using M formula logic:*
 
-*Nested Column 1 — Crime Severity Category: Applied a multi-level conditional formula evaluating the numeric Crime Code field. A code of exactly 110 was labeled "Homicide". Codes of 113 or 121 were labeled "Violent Crime". Codes of 210 or 220 were labeled "Property Crime". A code of exactly 330 was labeled "Robbery". All remaining codes were labeled "Other Crime". This produced five standardized business-level crime categories.*
+*Nested Column 1 — Crime Severity Category: code of exactly 110 was labeled "Homicide". Codes of 113 or 121 were labeled "Violent Crime". Codes of 210 or 220 were labeled "Property Crime". A code of exactly 330 was labeled "Robbery". All remaining codes were labeled "Other Crime".*
 
 ![Nested Conditionals 1](Screenshots/04_Advanced_Power_Query/02_nested_conditionals_1.png)
 
-*Nested Column 2 — Crime Impact Score: Applied a further nested formula evaluating both the Crime Severity Category and Victim Age together. A score of 100 was assigned to "Homicide". A score of 90 was assigned to "Violent Crime" where Victim Age was under 18. A score of 80 was assigned to all other "Violent Crime" records. A score of 70 was assigned to "Robbery". A score of 40 was assigned to "Property Crime". A score of 20 was assigned as the default baseline for all other categories. This numeric score enabled weighted severity ranking across geographic areas.*
+*Nested Column 2 — Crime Impact Score: Applied a further nested formula evaluating both the Crime Severity Category and Victim Age together. A score of 100 was assigned to "Homicide". A score of 90 was assigned to "Violent Crime" where Victim Age was under 18. A score of 80 was assigned to all other "Violent Crime" records. A score of 70 was assigned to "Robbery". A score of 40 was assigned to "Property Crime". A score of 20 was assigned as the default baseline for all other categories.*
 ![Nested Conditionals](Screenshots/04_Advanced_Power_Query/02_nested_conditionals.png)
 
 
@@ -309,7 +293,7 @@ DSA3050A_MidSem_Snit_670552/
 
 ***C.3 — Group By with Multiple Aggregations*** *(5 Marks)*
 
-*A Group By operation was applied to collapse all individual crime incident records into a regional summary table grouped by Area Name. Five aggregation calculations were applied simultaneously:*
+*Five aggregation calculations were applied simultaneously:*
 
 - *Total Crimes: Count of all rows per area using Table.RowCount*
 - *Avg Victim Age: Average of the Victim Age column using List.Average*
@@ -317,7 +301,6 @@ DSA3050A_MidSem_Snit_670552/
 - *Max Impact Score: Maximum value of the Crime Impact Score column using List.Max*
 - *Total Medium Risk Cases: Sum of the Medium Risk Flag binary column using List.Sum*
 
-*This produced a pre-aggregated regional summary table used for geographic comparisons in the dashboard.*
 
 ![Group By Aggregations](Screenshots/04_Advanced_Power_Query/03_group_by_aggregations.png)
 ![Group By Aggregations](Screenshots/04_Advanced_Power_Query/03_group_by_aggregations_output.png)
@@ -325,7 +308,7 @@ DSA3050A_MidSem_Snit_670552/
 
 ***C.4 — Created a Date Table in Power Query*** 
 
-*A new standalone DateTable was constructed from scratch using a custom M script. The table was generated dynamically by computing a continuous sequential list of dates from January 1, 2023 through December 31, 2024 using List.Dates with a one-day step duration. The list was converted to a tabular format and the following attribute columns were appended:*
+*The table was generated dynamically by computing a continuous sequential list of dates from January 1, 2023 through December 31, 2024 using List.Dates with a one-day step duration. The list was converted to a tabular format and the following attribute columns were appended:*
 
 - *Year: 4-digit calendar year extracted using Date.Year*
 - *Month: Numeric month (1 through 12) extracted using Date.Month*
@@ -334,14 +317,12 @@ DSA3050A_MidSem_Snit_670552/
 - *Month Name: Full textual month name (for example January) extracted using Date.MonthName*
 - *Week: Numeric week of year (1 through 53) extracted using Date.WeekOfYear*
 
-*This DateTable provides a clean master calendar dimension supporting all time-intelligence operations across the dashboard.*
 
 ![Create Date Table](Screenshots/04_Advanced_Power_Query/04_create_date_table.png)
 ![Create Date Table](Screenshots/04_Advanced_Power_Query/04_create_date_table_output.png)
 
 ***C.5 — Column Profiling to Identify Data Quality Issues*** *(5 Marks)*
 
-*Power Query's Column Profile and Column Distribution tools were activated and applied to four key columns to diagnose structural data quality:*
 
 *Crime Month profiling: Confirmed exactly 12 distinct values (months 1 through 12) with 0 errors, 0 nulls, and 0 invalid entries. The minimum value was 1 and the maximum was 12, with a dataset average of 6.647, confirming complete monthly coverage.*
 
@@ -363,18 +344,15 @@ DSA3050A_MidSem_Snit_670552/
 
 ***Page 1 — Cover Page***
 
-*A styled title page presenting the dashboard title "Los Angeles Crime Analysis Dashboard (2023-2024)" with a subtitle stating "Power BI Data Analytics — Prepared for Crime Pattern Analysis". The page uses a dark navy background with white and gold typography consistent with the LAPD organizational color theme.*
-
 ![Cover Page](Screenshots/05_Powerbi_visulazations/01_coverpage.png)
 
 ***Page 2 — Overview Dashboard (KPIs)***
 
-*This page provides high-level executive-level summary metrics for LAPD leadership.*
-
+*This page provides:*
 - *KPI Card 1 — Total Crimes: Displays 358.75K total logged incidents*
 - *KPI Card 2 — Resolved Crimes: Displays 27K resolved cases*
 - *KPI Card 3 — Avg Report Delay: Displays an average reporting lag of 7.22 days*
-- *Horizontal Bar Chart — Top Crime Areas: Ranks all 21 LAPD divisions by incident volume, with Central, Pacific, and Southwest at the top*
+- *Horizontal Bar Chart — Top Crime Areas: Ranks all 9 LAPD divisions by incident volume, with Central, Pacific, and Southwest at the top*
 - *Donut Chart — Crime Distribution by Status: Shows the percentage breakdown of investigative statuses, highlighting that Invest Cont accounts for 82.89% (297.33K) of all cases*
 - *Slicer — Crime Severity Dropdown: Allows users to filter the entire page by crime severity category*
 
@@ -384,17 +362,15 @@ DSA3050A_MidSem_Snit_670552/
 
 *This page analyzes victim demographics, resolution outcomes, seasonal patterns, and time-of-day distributions.*
 
-- *Scatter and Line Plot — Crime Distribution by Victim Age: Maps case volume against continuous victim age values from 0 to 100*
 - *100 Percent Stacked Bar Chart — Crime Resolution Status: Breaks down investigative resolution statuses by victim category (Adult, Minor, Senior)*
 - *Matrix Table — Crime Distribution by Area and Quarter: Cross-tabulates case volumes by geographic area (rows) against Q1, Q2, Q3, and Q4 (columns) with row totals*
 - *Pie Chart — Cases by Duration (Is Night Crime): Shows that 80.1% (287.36K) of crimes occurred during daytime hours and 19.9% (71.39K) occurred at night*
-- *Donut Chart — Cases by Age: Shows Adults at 60.47% (216.94K), followed by Minors at 34.1% (122.5K) and Seniors at 5.37% (19.28K)*
+- *Pie Chart — Cases by Age: Shows Adults at 60.47% (216.94K), followed by Minors at 34.1% (122.5K) and Seniors at 5.37% (19.28K)*
 
 ![Pattern & Resolution Analysis](Screenshots/05_Powerbi_visulazations/03_Pattern_Resolution_Anaylsis.png)
 
 ***Page 4 — Crime Trends and Temporal Patterns***
 
-*This page tracks time-based changes in crime metrics across the two-year analytical period.*
 
 - *Column Chart — Monthly Crime Trend (2023-2024): Maps total crime volume by month number (1 through 12), showing a peak in January at approximately 37,000 cases declining through year-end*
 - *Line Chart — Daily Crime Trend (2023-2024): Plots daily case counts from early 2023 through late 2024, showing a pronounced downward trajectory beginning around April 2024. An active tooltip demonstrated on October 5, 2023 showed a daily count of 629 incidents*
@@ -414,7 +390,7 @@ DSA3050A_MidSem_Snit_670552/
 
 ## ***Question 3: Dashboard Interactivity***
 
-***Slicers (3 Marks):***
+***Slicers***
 
 - *Slicer 1 — Crime Severity (Page 2, Overview Dashboard): Dropdown filter isolating all visuals on the overview page by crime severity category (High, Medium, Low)*
 ![Slicer 2](Screenshots/06_Dashboard_Interactivity/01_Slicer_2.png)
@@ -426,12 +402,12 @@ DSA3050A_MidSem_Snit_670552/
 - *Slicer 3 — Geographical Analysis Area Name (Page 5, Geographic Analysis): Dropdown filter isolating both the crime hotspot map and the case details table to specific LAPD operational divisions*
 ![Slicer 3](Screenshots/06_Dashboard_Interactivity/01_Slicer_3.png)
 
-***Drill-Down (2 Marks):***
+***Drill-Down:***
 
 *Drill-down was enabled on the Daily Crime Trend line chart on the Trend Analysis page. The hierarchy was configured from Year level down to Quarter level, then Month level, and finally to Day level, allowing analysts to navigate from the two-year summary view all the way down to individual daily crime counts.*
 ![Drilldown 1](Screenshots/06_Dashboard_Interactivity/02_Drilldown_1.png)
 
-***Cross-Filtering (2 Marks):***
+***Cross-Filtering:***
 
 *Cross-filtering was demonstrated between the Crime Hotspots map visual and the Top Crime Case Details table on the Geographic Crime Analysis page. Clicking on a specific geographic cluster on the map automatically filtered the table to display only the incident records belonging to that selected division, and vice versa. Cross-filtering was also active between the bar chart and donut chart on the Overview Dashboard.*
 ![Drilldown 2](Screenshots/06_Dashboard_Interactivity/02_Drilldown_2.png)
@@ -439,33 +415,58 @@ DSA3050A_MidSem_Snit_670552/
 ![Slicer Drilldown](Screenshots/06_Dashboard_Interactivity/Slicer_drilldown.png)
 
 
-## ***Three Business Insights***
+## ***Business Insights***
 
 
-***Insight 1 — Central LA is the Highest-Risk District Requiring Priority Resource Allocation***
+*### **Insight 1 — Central LA is the Highest-Risk District Requiring Priority Resource Allocation***
 
-*The Top Crime Areas bar chart on the Overview Dashboard confirms that the Central LAPD division recorded the single highest crime volume across 2023 and 2024, significantly exceeding all other 20 divisions, with Pacific and Southwest following as the second and third highest-volume districts respectively. These three divisions collectively account for a disproportionate share of the total 358,750 incidents logged citywide.*
-*The geographic hotspot map on the Geographic Crime Analysis page visually corroborates this finding, with the densest bubble clusters concentrated in the central and southwestern corridors of Los Angeles. LAPD management should prioritize patrol deployment, rapid response staffing allocations, and crime prevention budget expenditures toward Central, Pacific, and Southwest divisions. A data-driven reallocation of field resources away from lower-volume divisions toward these three confirmed hotspots would yield the greatest per-dollar reduction in overall citywide crime rates.*
+*The **Top Crime Areas** chart shows that the **Central LAPD division** recorded the highest crime volume in 2023–2024, followed by **Pacific** and **Southwest**. The Geographic Crime Analysis map confirms these areas as the city's primary crime hotspots. LAPD should prioritize patrol deployment, staffing, and crime prevention resources toward these three divisions, where targeted investments are likely to produce the greatest reduction in overall crime.*
 
+*### **Insight 2 — A 7.5% Resolution Rate Highlights a Critical Investigative Capacity Gap***
 
+*The dashboard shows that only **27,000 of 358,750 crimes (7.5%)** were resolved, while **82.89%** remain under **Investigation Continuing**. This low clearance rate suggests insufficient investigative capacity. Increasing detective staffing, expanding forensic and digital evidence capabilities, and establishing dedicated follow-up units for high-volume crimes could improve case resolution and strengthen public confidence.*
 
-***Insight 2 — A Resolution Rate of 7.5 Percent Signals a Critical Investigative Capacity Gap***
+*### **Insight 3 — Crime Peaks in Q1, Requiring Seasonal Resource Planning***
 
-*The Resolved Crimes KPI card on the Overview Dashboard shows that of the 358,750 total crimes recorded across 2023 and 2024, only 27,000 cases reached a resolved status — a clearance rate of approximately 7.5 percent. The Crime Distribution by Status donut chart further confirms that 82.89 percent of all cases (297,330 records) remain classified under "Invest Cont" (Investigation Continuing), meaning the vast majority of reported incidents have no recorded resolution outcome. Adult Arrest accounted for only 7.51 percent of cases (26,960 records), while Juvenile Arrest represented under 1 percent. This critically low clearance rate signals a structural investigative resource gap within the department. LAPD leadership should consider increasing detective staffing ratios, investing in forensic technology and digital evidence processing capacity, and establishing dedicated case-follow-up units specifically targeting high-volume crime categories. Sustained improvements in case resolution rates would directly strengthen public confidence in law enforcement effectiveness across all 21 divisions.*
-
-
-
-***Insight 3 — Crime Volume Peaks in January and Follows a Declining Seasonal Pattern Requiring Q1 Planning***
-
-*The Monthly Crime Trend column chart on the Trend Analysis page shows crime incidents peaking sharply in the first month of the year at approximately 37,000 cases, with a consistent downward trend observed across months 2 through 12. The Daily Crime Trend line chart reinforces this seasonal dynamic, showing a further pronounced downward trajectory in daily incident counts beginning around April 2024 and continuing through year-end. This recurring seasonal compression confirms that Q1 (January through March) represents the highest-risk operational period for the LAPD each year. Management should use this temporal intelligence to implement heightened patrol presence, accelerated community engagement programming, and proactive crime deterrence initiatives concentrated specifically in Q1 each year. Simultaneously, the lower-crime period from Q3 through Q4 presents a strategic window for officer training cycles, equipment upgrades, and departmental capacity planning without compromising frontline coverage.*
+*The **Monthly Crime Trend** reveals that crime peaks in **January** and steadily declines throughout the year, a pattern reinforced by the **Daily Crime Trend**. This indicates that **Q1 (January–March)** is the highest-risk period. LAPD should concentrate patrols, community engagement, and crime prevention efforts during Q1, while using the lower-crime months in Q3–Q4 for officer training, equipment upgrades, and operational planning.*
 
 
 
-***Data Nature:*** *Transcribed from original LAPD paper crime reports. Published and maintained as official government open data on a bi-weekly refresh schedule. This dataset has been available on the Los Angeles Open Data Portal since 2020 and represents real incident records — not synthetic, AI-generated, or fabricated data.*
+*Data Nature: Transcribed from original LAPD paper crime reports. Published and maintained as official government open data on a bi-weekly refresh schedule. This dataset has been available on the Los Angeles Open Data Portal since 2020 and represents real incident records — not synthetic, AI-generated, or fabricated data.*
+
+---
+
+***Tools Used***
+
+- *Power BI Desktop — data modeling, transformation, and dashboard development*
+- *Power Query Editor — ETL (Extract, Transform, Load) process*
+- *DAX — calculated measure for Avg Report Delay and resolution metrics*
+
+---
+
+***Limitations***
+
+*The primary limitation encountered during this project was the inability to load the full dataset as a locally saved file due to its large size. To address this, the dataset was directly connected from the official LA Open Data Portal source and sliced to the 2023 to 2024 records only, which ensured acceptable performance within Power BI Desktop without compromising the integrity or representativeness of the data used for analysis.*
+
+---
+
+***Reflection***
+
+*This project covered the complete Business Intelligence lifecycle, from raw data preparation through to interactive dashboard development. Practical experience was gained in using Power Query for data cleaning, transformation, query merging, and analytical modeling. Working directly with a real government dataset introduced genuine data quality challenges and representative of real-world BI work.*
+
+---
+
+***Collaboration***
+
+*Contributions, suggestions, and constructive feedback are appreciated.*
+
+---
 
 
 
-*End of README — DSA3050A Mid-Semester Practical Examination*
+*End of README of  project*
 
-*Student: Snit Kahsay Teshome | Student ID: 670552*
+
+
+
 
