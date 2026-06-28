@@ -418,19 +418,19 @@ DSA3050A_MidSem_Snit_670552/
 ## ***Business Insights***
 
 
-*### **Insight 1 — Central LA is the Highest-Risk District Requiring Priority Resource Allocation***
+### ***Insight 1 — Central LA is the Highest-Risk District Requiring Priority Resource Allocation***
 
 *The **Top Crime Areas** chart shows that the **Central LAPD division** recorded the highest crime volume in 2023–2024, followed by **Pacific** and **Southwest**. The Geographic Crime Analysis map confirms these areas as the city's primary crime hotspots. LAPD should prioritize patrol deployment, staffing, and crime prevention resources toward these three divisions, where targeted investments are likely to produce the greatest reduction in overall crime.*
 
-*### **Insight 2 — A 7.5% Resolution Rate Highlights a Critical Investigative Capacity Gap***
+### ***Insight 2 — A 7.5% Resolution Rate Highlights a Critical Investigative Capacity Gap***
 
 *The dashboard shows that only **27,000 of 358,750 crimes (7.5%)** were resolved, while **82.89%** remain under **Investigation Continuing**. This low clearance rate suggests insufficient investigative capacity. Increasing detective staffing, expanding forensic and digital evidence capabilities, and establishing dedicated follow-up units for high-volume crimes could improve case resolution and strengthen public confidence.*
 
-*### **Insight 3 — Crime Peaks in Q1, Requiring Seasonal Resource Planning***
+### ***Insight 3 — Crime Peaks in Q1, Requiring Seasonal Resource Planning***
 
 *The **Monthly Crime Trend** reveals that crime peaks in **January** and steadily declines throughout the year, a pattern reinforced by the **Daily Crime Trend**. This indicates that **Q1 (January–March)** is the highest-risk period. LAPD should concentrate patrols, community engagement, and crime prevention efforts during Q1, while using the lower-crime months in Q3–Q4 for officer training, equipment upgrades, and operational planning.*
 
-
+---
 
 *Data Nature: Transcribed from original LAPD paper crime reports. Published and maintained as official government open data on a bi-weekly refresh schedule. This dataset has been available on the Los Angeles Open Data Portal since 2020 and represents real incident records — not synthetic, AI-generated, or fabricated data.*
 
@@ -461,9 +461,6 @@ DSA3050A_MidSem_Snit_670552/
 *Contributions, suggestions, and constructive feedback are appreciated.*
 
 ---
-
-
-
 *End of README of  project*
 
 
