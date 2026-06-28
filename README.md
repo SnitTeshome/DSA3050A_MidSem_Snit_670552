@@ -136,7 +136,7 @@ DSA3050A_MidSem_Snit_670552/
 │ 
 │
 ├── PowerQuery_Evidence/
-│   └── Applied_Steps_Final
+│   └── Applied_Steps_Final.png
 │
 ├── .gitignore
 ├── LICENSE
@@ -461,7 +461,7 @@ DSA3050A_MidSem_Snit_670552/
 *Contributions, suggestions, and constructive feedback are appreciated.*
 
 ---
-*End of README of  project*
+*End of  project*
 
 
 
