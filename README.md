@@ -133,13 +133,9 @@ DSA3050A_MidSem_Snit_670552/
 │       └── 02_Drilldown_2.png
 │
 ├── Documentation/
-│   ├── README.md
-│   └── BUSINESS_INSIGHTS.(Readme)
+│   └──INSIGHTS
 │
 ├── PowerQuery_Evidence/
-│   ├── Section_A_Summary
-│   ├── Section_B_Summary
-│   ├── Section_C_Summary
 │   └── Applied_Steps_Final
 │
 ├── .gitignore
